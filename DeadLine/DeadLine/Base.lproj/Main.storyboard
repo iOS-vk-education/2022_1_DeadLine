@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="-1775" y="788"/>
         </scene>
-        <!--Favorites View Controller-->
+        <!--Add View Controller-->
         <scene sceneID="t66-sm-oEf">
             <objects>
-                <viewController storyboardIdentifier="favorites_vc" id="knL-ev-ZyP" customClass="FavoritesViewController" customModule="DeadLine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="favorites_vc" id="knL-ev-ZyP" customClass="AddViewController" customModule="DeadLine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cjm-vy-nn3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

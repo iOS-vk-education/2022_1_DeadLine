@@ -8,6 +8,8 @@
 import UIKit
 
 
+
+
 class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
    
@@ -22,6 +24,11 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
+        
+        if !UserDefaults().bool(forKey: "tasks"){
+            UserDefaults().set(true, forKey: "tasks")
+            UserDefaults().set(0, forKey: "count")
+        }
     }
     
 

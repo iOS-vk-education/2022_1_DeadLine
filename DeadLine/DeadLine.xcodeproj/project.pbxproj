@@ -24,7 +24,6 @@
 		63EBD9F92803560D0031C09E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EBD9F72803560D0031C09E /* Main.storyboard */; };
 		63EBD9FB2803560E0031C09E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EBD9FA2803560E0031C09E /* Assets.xcassets */; };
 		63EBD9FE2803560E0031C09E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EBD9FC2803560E0031C09E /* LaunchScreen.storyboard */; };
-		D92F1865281009E400BE5E7F /* TableViewController_kek.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F1864281009E400BE5E7F /* TableViewController_kek.swift */; };
 		D99A9995280F47F100DC81F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D99A9994280F47F100DC81F2 /* GoogleService-Info.plist */; };
 		D9C212C0280EE51D00F64ABF /* DemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C212BE280EE51D00F64ABF /* DemoTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +42,6 @@
 		63EBD9FA2803560E0031C09E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63EBD9FD2803560E0031C09E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63EBD9FF2803560E0031C09E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D92F1864281009E400BE5E7F /* TableViewController_kek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController_kek.swift; sourceTree = "<group>"; };
 		D99A9994280F47F100DC81F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9C212BE280EE51D00F64ABF /* DemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,7 +92,6 @@
 				63DD415E280F29CA004F8A1F /* SignUpViewController.swift */,
 				63EBD9FA2803560E0031C09E /* Assets.xcassets */,
 				63EBD9FC2803560E0031C09E /* LaunchScreen.storyboard */,
-				D92F1864281009E400BE5E7F /* TableViewController_kek.swift */,
 				63EBD9F72803560D0031C09E /* Main.storyboard */,
 				63EBD9FF2803560E0031C09E /* Info.plist */,
 				63DD4160280F2A5D004F8A1F /* SignInViewController.swift */,
@@ -193,7 +190,6 @@
 				63DD414C280DF0FE004F8A1F /* TasksViewController.swift in Sources */,
 				63DD414E280DF143004F8A1F /* OtherViewController.swift in Sources */,
 				63EBD9F62803560D0031C09E /* ViewController.swift in Sources */,
-				D92F1865281009E400BE5E7F /* TableViewController_kek.swift in Sources */,
 				63DD4161280F2A5D004F8A1F /* SignInViewController.swift in Sources */,
 				63EBD9F22803560D0031C09E /* AppDelegate.swift in Sources */,
 				63DD414A280DEF3E004F8A1F /* AddViewController.swift in Sources */,

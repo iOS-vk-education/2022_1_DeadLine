@@ -9,11 +9,6 @@ import UIKit
 
 
 
-//struct Task:Codable{
-//    var Title: String
-//    var Description: String
-//    var Priority:Double
-//}
 
 struct UserTaskCache {
     static let key = "userProfileCache"
@@ -70,56 +65,14 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             print("error")
             return
         }
-//        var Tasks = UserDefaults().value(forKey: "Tasks") as? [Task]
-        
         
         let newCount = count + 1
         var newTask: Task
         newTask = getTask(tfTitle,tfDescription,sldrPriority)
-        print("GOT TASK")
-        print(newTask)
-
-        //newTasks = Tasks!
-//        Tasks.append(newTask)
-        //newTasks.append(newTask)
-        
 
 
         UserDefaults().set(newCount, forKey: "count")
-        print("set count", newCount)
-//        UserDefaults().set(Tasks, forKey: "Tasks")
-
-        //print(Tasks)
-        //let vc = storyboard?.instantiateViewController(withIdentifier: "tasks_vc") as! TasksViewController
-        print("HERE")
-        //vc.addTask(task:newTask)
-        //UserTaskCache.save(newTask)
-        
-//        do {
-//            let encodedData = try NSKeyedArchiver.archivedData(withRootObject: newTask, requiringSecureCoding: false)
-//            let userDefaults = UserDefaults.standard
-//            userDefaults.set(encodedData, forKey: "NewTask")
-//        }catch let error as NSError {
-//            print(error.debugDescription)
-//        }
-//
-//        print("go to tasks")
         saveTask()
-//        DispatchQueue.main.async {
-//            vc.updateTasks()
-//        }
-//        vc.update{
-//            DispatchQueue.main.async {
-////                vc.updateTasks()
-//                fn()
-//            }
-//        }
-//        vc.update = {
-//            DispatchQueue.main.async {
-//                vc.updateTasks()
-//            }
-//        }
-//        update?()
 
     }
 
@@ -152,9 +105,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         print(vc.tasks)
         vc.updateTasks()
 
-//        if let cell =  vc.tableView.cellForRow(at: newCount) as? UITableViewCell{
-//            cell.textLabel.text = text
-//        }
         
     }
     

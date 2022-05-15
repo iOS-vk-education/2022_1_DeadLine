@@ -14,7 +14,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var pass2_text: UITextField!
     @IBOutlet weak var pass1_text: UITextField!
     
-
+    let userDefaults = UserDefaults.standard
     // Create User
     
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class SignUpViewController: UIViewController {
              let email = self.login_text.text
              
              //let user = User(login: email!)
-             UserDefaults.standard.set(email, forKey: "user")
+             self.userDefaults.set(email, forKey: "user")
              // Write User to User's Defaults
              self.navigationController?.popViewController(animated: true)
                         }

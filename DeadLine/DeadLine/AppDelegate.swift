@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()// Override point for customization after application launch.
+        FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true// Override point for customization after application launch.
         return true
     }
 

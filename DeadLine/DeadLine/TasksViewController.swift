@@ -6,14 +6,30 @@
 ////
 
 import UIKit
-
+import FirebaseAuth
+import FirebaseDatabase
 class TasksViewController: UITableViewController {
-
+    var Tasks: [Task] = []
     var tasks = ["first","second"]
+    private lazy var databasePath: DatabaseReference? = {
+      // 1
+      guard let uid = Auth.auth().currentUser?.uid else {
+        return nil
+      }
+
+      // 2
+      let ref = Database.database()
+        .reference()
+        .child("users/\(uid)/tasks")
+      return ref
+    }()
+
+    // 3
+    private let decoder = JSONDecoder()
    // var Tasks: [Task] = ()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        refreshbtn.isHidden = true
         
         let nib = UINib(nibName: "DemoTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "DemoTableViewCell")
@@ -27,7 +43,7 @@ class TasksViewController: UITableViewController {
 //                UserDefaults.standard.removePersistentDomain(forName: domain)
 //                UserDefaults.standard.synchronize()
         
-
+        loadFirebase()
     }
     
     
@@ -35,7 +51,8 @@ class TasksViewController: UITableViewController {
         @IBAction func reload(_ sender: UIButton){
            // tasks.append("New Task")
             print("TASKS:", tasks)
-            updateTasks()
+            //updateTasks()
+            //loadFirebase()
             //self.tableView.reloadSections(.init(integer: 0), with: .fade)
         }
     
@@ -58,6 +75,7 @@ class TasksViewController: UITableViewController {
     
         }
     
+        
     
 
     // MARK: - Table view data source
@@ -69,7 +87,7 @@ class TasksViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tasks.count
+        return Tasks.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -82,8 +100,45 @@ class TasksViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! DemoTableViewCell
 
         
-        cell.myLablel?.text =  tasks[indexPath.row]
+        cell.myLablel?.text =  Tasks[indexPath.row].Title
         return cell
     }
 
+    func loadFirebase()
+    {
+        
+        guard let databasePath = databasePath else {
+          return
+        }
+
+        // 2
+        databasePath
+          .observe(.childAdded) { [weak self] snapshot in
+
+            // 3
+            guard
+              let self = self,
+              var json = snapshot.value as? [String: Any]
+            else {
+              return
+            }
+
+            // 4
+            json["id"] = snapshot.key
+
+            do {
+
+              // 5
+              let taskData = try JSONSerialization.data(withJSONObject: json)
+              // 6
+              let task = try self.decoder.decode(Task.self, from: taskData)
+              // 7
+                self.Tasks.append(task)
+            } catch {
+              print("an error occurred", error)
+            }
+              //print(Tasks)
+              self.tableView.reloadData()
+          }
+    }
 }

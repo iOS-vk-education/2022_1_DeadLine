@@ -29,11 +29,11 @@
             </objects>
             <point key="canvasLocation" x="-907" y="-24"/>
         </scene>
-        <!--Избранное-->
+        <!--Добавить-->
         <scene sceneID="itc-gn-b4d">
             <objects>
                 <navigationController id="ZGl-wK-949" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Избранное" image="star" catalog="system" id="UCo-lp-hKE"/>
+                    <tabBarItem key="tabBarItem" title="Добавить" image="plus" catalog="system" id="UCo-lp-hKE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k5F-vz-b53">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -178,11 +178,11 @@
             </objects>
             <point key="canvasLocation" x="-907" y="788"/>
         </scene>
-        <!--Прочее-->
+        <!--Профиль-->
         <scene sceneID="pv7-8L-JPd">
             <objects>
                 <navigationController id="fKq-E8-Z4C" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Прочее" image="lineweight" catalog="system" id="HLB-37-8UZ"/>
+                    <tabBarItem key="tabBarItem" title="Профиль" image="person" catalog="system" id="HLB-37-8UZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W8A-UH-bu9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -198,7 +198,6 @@
         <!--Мои Задачи-->
         <scene sceneID="tk8-jI-Mqt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FBJ-mm-7iZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="tasks_vc1" id="UGD-I7-a5M" customClass="TasksViewController" customModule="DeadLine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Rz-4R-119">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -282,6 +281,7 @@
                         <outlet property="tableView" destination="PDf-ZO-rGl" id="FxD-ur-goN"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FBJ-mm-7iZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-97" y="2214"/>
         </scene>
@@ -349,7 +349,7 @@
                     <navigationItem key="navigationItem" title="Мои Задачи" id="hWP-LT-toA">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="x18-4T-wnM">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pwY-dC-osL">
-                                <rect key="frame" x="319" y="5" width="90" height="34.5"/>
+                                <rect key="frame" x="292.5" y="5" width="101.5" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Обновить"/>
@@ -375,6 +375,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4a-kc-L0M">
+                                <rect key="frame" x="12" y="561" width="390" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="206-FX-VkG"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Выход">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnOutClicked:" destination="h5N-Yw-Y1F" eventType="touchUpInside" id="Kxb-5l-msK"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enk-vk-h7J">
                                 <rect key="frame" x="12" y="645" width="390" height="60"/>
                                 <constraints>
@@ -401,19 +414,50 @@
                                     <segue destination="iS9-t3-JqP" kind="show" id="IRu-df-drb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не авторизованы:(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orc-0t-P4q">
+                                <rect key="frame" x="12" y="112" width="390" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="wnb-f5-CjD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xep-PA-5bV">
+                                <rect key="frame" x="12" y="164" width="390" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fed-OP-hEP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1VV-yQ-umt" firstAttribute="leading" secondItem="fed-OP-hEP" secondAttribute="leading" constant="12" id="0g2-f0-NJ3"/>
+                            <constraint firstItem="xep-PA-5bV" firstAttribute="top" secondItem="Orc-0t-P4q" secondAttribute="bottom" constant="8" id="2Cx-Tx-Tzr"/>
                             <constraint firstItem="enk-vk-h7J" firstAttribute="leading" secondItem="fed-OP-hEP" secondAttribute="leading" constant="12" id="BYd-os-ABB"/>
                             <constraint firstItem="fed-OP-hEP" firstAttribute="trailing" secondItem="1VV-yQ-umt" secondAttribute="trailing" constant="12" id="MVM-ce-l6U"/>
                             <constraint firstItem="1VV-yQ-umt" firstAttribute="top" secondItem="enk-vk-h7J" secondAttribute="bottom" constant="24" id="Tgf-yi-cuf"/>
+                            <constraint firstItem="xep-PA-5bV" firstAttribute="leading" secondItem="fed-OP-hEP" secondAttribute="leading" constant="12" id="U3z-s1-oxf"/>
                             <constraint firstItem="fed-OP-hEP" firstAttribute="bottom" secondItem="1VV-yQ-umt" secondAttribute="bottom" constant="24" id="WC6-6x-DQn"/>
+                            <constraint firstItem="Orc-0t-P4q" firstAttribute="leading" secondItem="fed-OP-hEP" secondAttribute="leading" constant="12" id="YH4-PJ-gRF"/>
+                            <constraint firstItem="X4a-kc-L0M" firstAttribute="leading" secondItem="fed-OP-hEP" secondAttribute="leading" constant="12" id="bLt-F7-NMA"/>
                             <constraint firstItem="fed-OP-hEP" firstAttribute="trailing" secondItem="enk-vk-h7J" secondAttribute="trailing" constant="12" id="fWa-g1-iEt"/>
+                            <constraint firstItem="fed-OP-hEP" firstAttribute="trailing" secondItem="xep-PA-5bV" secondAttribute="trailing" constant="12" id="fdh-fS-4Ed"/>
+                            <constraint firstItem="Orc-0t-P4q" firstAttribute="top" secondItem="fed-OP-hEP" secondAttribute="top" constant="24" id="fva-wM-pv5"/>
+                            <constraint firstItem="fed-OP-hEP" firstAttribute="trailing" secondItem="X4a-kc-L0M" secondAttribute="trailing" constant="12" id="lm0-c4-4Ke"/>
+                            <constraint firstItem="fed-OP-hEP" firstAttribute="trailing" secondItem="Orc-0t-P4q" secondAttribute="trailing" constant="12" id="sPM-fM-qV6"/>
+                            <constraint firstItem="enk-vk-h7J" firstAttribute="top" secondItem="X4a-kc-L0M" secondAttribute="bottom" constant="24" id="zaj-hr-4qo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9od-FB-maq"/>
+                    <connections>
+                        <outlet property="btnIn" destination="enk-vk-h7J" id="6qS-ie-us5"/>
+                        <outlet property="btnOut" destination="X4a-kc-L0M" id="Zm0-PU-vex"/>
+                        <outlet property="btnRegister" destination="1VV-yQ-umt" id="hBq-Ge-ak1"/>
+                        <outlet property="lblEmail" destination="xep-PA-5bV" id="FLs-rw-LX2"/>
+                        <outlet property="lblText" destination="Orc-0t-P4q" id="xwy-s3-Sz9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjO-sv-8tI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -431,17 +475,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yes-Ct-78l">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Почта" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yes-Ct-78l">
                                         <rect key="frame" x="12" y="100" width="390" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wJU-9m-Cbg">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Пароль" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wJU-9m-Cbg">
                                         <rect key="frame" x="12" y="158" width="390" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lgk-1E-UUE">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Повтор пароля" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lgk-1E-UUE">
                                         <rect key="frame" x="12" y="216" width="390" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -452,7 +496,9 @@
                                             <constraint firstAttribute="height" constant="44" id="7zl-fE-cGd"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Зарегистрироваться">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="SignUpClicked:" destination="iS9-t3-JqP" eventType="touchUpInside" id="cos-OY-eDZ"/>
                                         </connections>
@@ -503,12 +549,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ojI-Mm-kcR">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Почта" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ojI-Mm-kcR">
                                         <rect key="frame" x="12" y="100" width="390" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wD6-Kc-qyj">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Пароль" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wD6-Kc-qyj">
                                         <rect key="frame" x="12" y="158" width="390" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -519,7 +565,9 @@
                                             <constraint firstAttribute="height" constant="44" id="qYF-pT-JSq"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Вход">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="SignInClicked:" destination="d8O-Un-eFt" eventType="touchUpInside" id="DQ8-BE-o4y"/>
                                         </connections>
@@ -556,11 +604,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="lineweight" catalog="system" width="128" height="110"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="radiobtn_off" width="24" height="24"/>
         <image name="radiobtn_on" width="22" height="22"/>
-        <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

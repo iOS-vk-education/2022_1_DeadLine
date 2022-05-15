@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 class SignInViewController: UIViewController {
     @IBOutlet weak var login_text: UITextField!
-    
+    let userDefaults = UserDefaults.standard
     @IBOutlet weak var sign_in_btn: UIButton!
     @IBOutlet weak var pass1_text: UITextField!
     override func viewDidLoad() {
@@ -21,6 +21,10 @@ class SignInViewController: UIViewController {
     @IBAction func SignInClicked(_ sender: Any) {
         Auth.auth().signIn(withEmail: login_text.text!, password: pass1_text.text!) { (user, error) in
            if error == nil{
+               let email = self.login_text.text
+               
+               //let user = User(login: email!)
+               self.userDefaults.set(email, forKey: "user")
                self.navigationController?.popViewController(animated: true)
                           }
             else{

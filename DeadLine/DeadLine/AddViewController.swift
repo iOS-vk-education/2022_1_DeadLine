@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-
+import FirebaseAuth
+import FirebaseDatabase
 
 
 struct UserTaskCache {
@@ -29,11 +29,7 @@ struct UserTaskCache {
     }
 }
 
-struct Task: Codable {
-    var Title: String
-    var Description: String
-    var Priority:Double
-}
+
 
 func getTask(_ title: UITextField,_ description: UITextField,_ priority: UISlider) -> Task{
     var gotTask = Task(Title: "error", Description: "error", Priority: 0.0)
@@ -43,7 +39,7 @@ func getTask(_ title: UITextField,_ description: UITextField,_ priority: UISlide
     
     gotTask.Title = gotTitle
     gotTask.Description = gotDescription
-    gotTask.Priority = Double(gotPriority)
+    gotTask.Priority = Float(gotPriority)
     return gotTask
 }
 
@@ -55,10 +51,25 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var sldrPriority: UISlider!
     @IBOutlet var btnAdd: UIButton!
     
+    private lazy var databasePath: DatabaseReference? = {
+      // 1
+      guard let uid = Auth.auth().currentUser?.uid else {
+        return nil
+      }
+
+      // 2
+      let ref = Database.database()
+        .reference()
+        .child("users/\(uid)/tasks")
+      return ref
+    }()
+
+    // 3
+    private let encoder = JSONEncoder()
 
 
     @IBAction func addTask(_ sender: UIButton){
-        print("ADDDDDD")
+        /*print("ADDDDDD")
 //        var newTasks: [Task]
         
         guard let count = UserDefaults().value(forKey: "count") as? Int else {
@@ -72,13 +83,40 @@ class AddViewController: UIViewController, UITextFieldDelegate {
 
 
         UserDefaults().set(newCount, forKey: "count")
-        saveTask()
-
+        saveTask()*/
+        // Create a new alert
+        var dialogMessage = UIAlertController(title: "Ошибка", message: "Авторизируйтесь, чтобы добавить задачу", preferredStyle: .alert)
+        var dialogMessage1 = UIAlertController(title: "Успешно", message: "Задача успешно добавлена", preferredStyle: .alert)
+        if (Auth.auth().currentUser == nil)
+        {
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+             })
+            
+            //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+            // Present alert to user
+            self.present(dialogMessage, animated: true, completion: nil)
+        }
+        else
+        {
+            Firebase()
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+             })
+            
+            //Add OK button to a dialog message
+            dialogMessage1.addAction(ok)
+            // Present alert to user
+            self.present(dialogMessage1, animated: true, completion: nil)
+        }
+        
+        //Firebase()
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tfTitle.delegate = self
+       
         
         
     }
@@ -108,7 +146,32 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
+    func Firebase(){
+        guard let databasePath = databasePath else {
+          return
+        }
+
+        // 2
+
+
+        // 3
+        let task = Task(Title: tfTitle.text ?? "-",Description: tfDescription.text ?? "-",Priority: sldrPriority.value)
+
+        do {
+          // 4
+          let data = try encoder.encode(task)
+
+          // 5
+          let json = try JSONSerialization.jsonObject(with: data)
+
+          // 6
+          databasePath.childByAutoId()
+            .setValue(json)
+        } catch {
+          print("an error occurred", error)
+        }
+
+    }
 
 
 }

@@ -22,6 +22,7 @@
 		63EBD9FE2803560E0031C09E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EBD9FC2803560E0031C09E /* LaunchScreen.storyboard */; };
 		D9034EEE284269FD007D6ADB /* DoneTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9034EED284269FD007D6ADB /* DoneTasksViewController.swift */; };
 		D943D2A52842403000000BA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D943D2A42842403000000BA0 /* GoogleService-Info.plist */; };
+		D977C4CF28429D6E00D34FC1 /* teaser.png in Resources */ = {isa = PBXBuildFile; fileRef = D977C4CE28429D6D00D34FC1 /* teaser.png */; };
 		D9C212C0280EE51D00F64ABF /* DemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C212BE280EE51D00F64ABF /* DemoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		82B3A298D3EBA4734FFDAF63 /* Pods-DeadLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeadLine.release.xcconfig"; path = "Target Support Files/Pods-DeadLine/Pods-DeadLine.release.xcconfig"; sourceTree = "<group>"; };
 		D9034EED284269FD007D6ADB /* DoneTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTasksViewController.swift; sourceTree = "<group>"; };
 		D943D2A42842403000000BA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D977C4CE28429D6D00D34FC1 /* teaser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teaser.png; path = ../../../Downloads/teaser.png; sourceTree = "<group>"; };
 		D9C212BE280EE51D00F64ABF /* DemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 		63EBD9F02803560D0031C09E /* DeadLine */ = {
 			isa = PBXGroup;
 			children = (
+				D977C4CE28429D6D00D34FC1 /* teaser.png */,
 				63DD414B280DF0FE004F8A1F /* TasksViewController.swift */,
 				D943D2A42842403000000BA0 /* GoogleService-Info.plist */,
 				63EBD9F12803560D0031C09E /* AppDelegate.swift */,
@@ -186,6 +189,7 @@
 				D943D2A52842403000000BA0 /* GoogleService-Info.plist in Resources */,
 				63EBD9FB2803560E0031C09E /* Assets.xcassets in Resources */,
 				63EBD9F92803560D0031C09E /* Main.storyboard in Resources */,
+				D977C4CF28429D6E00D34FC1 /* teaser.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

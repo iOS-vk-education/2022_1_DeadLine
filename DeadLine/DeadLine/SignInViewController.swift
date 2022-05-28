@@ -17,6 +17,7 @@ class SignInViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+   
     
     @IBAction func SignInClicked(_ sender: Any) {
         Auth.auth().signIn(withEmail: login_text.text!, password: pass1_text.text!) { (user, error) in
@@ -25,7 +26,9 @@ class SignInViewController: UIViewController {
                
                //let user = User(login: email!)
                self.userDefaults.set(email, forKey: "user")
+               self.viewWillAppear(true)
                self.navigationController?.popViewController(animated: true)
+               
                           }
             else{
              let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)

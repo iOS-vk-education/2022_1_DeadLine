@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5CC57F479AB2D99C3395A62E /* Pods_DeadLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0B316A69ED767BB9EB3CC9 /* Pods_DeadLine.framework */; };
 		6358F4592810399900167BFF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6358F4582810399900167BFF /* Model.swift */; };
-		637F7E2C2810300F007A0EAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 637F7E2B2810300F007A0EAE /* GoogleService-Info.plist */; };
 		63DD414A280DEF3E004F8A1F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD4149280DEF3E004F8A1F /* AddViewController.swift */; };
 		63DD414C280DF0FE004F8A1F /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD414B280DF0FE004F8A1F /* TasksViewController.swift */; };
 		63DD414E280DF143004F8A1F /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD414D280DF143004F8A1F /* OtherViewController.swift */; };
@@ -21,13 +20,13 @@
 		63EBD9F92803560D0031C09E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EBD9F72803560D0031C09E /* Main.storyboard */; };
 		63EBD9FB2803560E0031C09E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EBD9FA2803560E0031C09E /* Assets.xcassets */; };
 		63EBD9FE2803560E0031C09E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EBD9FC2803560E0031C09E /* LaunchScreen.storyboard */; };
+		D943D2A52842403000000BA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D943D2A42842403000000BA0 /* GoogleService-Info.plist */; };
 		D9C212C0280EE51D00F64ABF /* DemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C212BE280EE51D00F64ABF /* DemoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5A0B316A69ED767BB9EB3CC9 /* Pods_DeadLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeadLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6358F4582810399900167BFF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		637F7E2B2810300F007A0EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		63DD4149280DEF3E004F8A1F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		63DD414B280DF0FE004F8A1F /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		63DD414D280DF143004F8A1F /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +42,7 @@
 		63EBD9FF2803560E0031C09E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B68D643098E05916160EF7B /* Pods-DeadLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeadLine.debug.xcconfig"; path = "Target Support Files/Pods-DeadLine/Pods-DeadLine.debug.xcconfig"; sourceTree = "<group>"; };
 		82B3A298D3EBA4734FFDAF63 /* Pods-DeadLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeadLine.release.xcconfig"; path = "Target Support Files/Pods-DeadLine/Pods-DeadLine.release.xcconfig"; sourceTree = "<group>"; };
+		D943D2A42842403000000BA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9C212BE280EE51D00F64ABF /* DemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,12 +79,12 @@
 		63EBD9F02803560D0031C09E /* DeadLine */ = {
 			isa = PBXGroup;
 			children = (
-				637F7E2B2810300F007A0EAE /* GoogleService-Info.plist */,
+				63DD414B280DF0FE004F8A1F /* TasksViewController.swift */,
+				D943D2A42842403000000BA0 /* GoogleService-Info.plist */,
 				63EBD9F12803560D0031C09E /* AppDelegate.swift */,
 				63EBD9F32803560D0031C09E /* SceneDelegate.swift */,
 				63EBD9F52803560D0031C09E /* ViewController.swift */,
 				63DD4149280DEF3E004F8A1F /* AddViewController.swift */,
-				63DD414B280DF0FE004F8A1F /* TasksViewController.swift */,
 				63DD414D280DF143004F8A1F /* OtherViewController.swift */,
 				63DD415E280F29CA004F8A1F /* SignUpViewController.swift */,
 				63EBD9FA2803560E0031C09E /* Assets.xcassets */,
@@ -180,7 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63EBD9FE2803560E0031C09E /* LaunchScreen.storyboard in Resources */,
-				637F7E2C2810300F007A0EAE /* GoogleService-Info.plist in Resources */,
+				D943D2A52842403000000BA0 /* GoogleService-Info.plist in Resources */,
 				63EBD9FB2803560E0031C09E /* Assets.xcassets in Resources */,
 				63EBD9F92803560D0031C09E /* Main.storyboard in Resources */,
 			);
@@ -393,7 +393,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57P996Q3S2;
+				DEVELOPMENT_TEAM = S3UYQ6JNJ2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeadLine/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -406,7 +406,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.DeadLine.DeadLine;
+				PRODUCT_BUNDLE_IDENTIFIER = kravtandr.DeadLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -422,7 +422,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57P996Q3S2;
+				DEVELOPMENT_TEAM = S3UYQ6JNJ2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeadLine/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -435,7 +435,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.DeadLine.DeadLine;
+				PRODUCT_BUNDLE_IDENTIFIER = kravtandr.DeadLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

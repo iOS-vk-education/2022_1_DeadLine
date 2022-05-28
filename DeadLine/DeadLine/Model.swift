@@ -10,4 +10,5 @@ struct Task: Codable {
     var Title: String
     var Description: String
     var Priority:Float
+    var Done:Bool
 }

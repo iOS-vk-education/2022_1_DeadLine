@@ -32,7 +32,7 @@ struct UserTaskCache {
 
 
 func getTask(_ title: UITextField,_ description: UITextField,_ priority: UISlider) -> Task{
-    var gotTask = Task(Title: "error", Description: "error", Priority: 0.0)
+    var gotTask = Task(Title: "error", Description: "error", Priority: 0.0, Done: false)
     guard let gotTitle = title.text, !gotTitle.isEmpty else { return gotTask}
     guard let gotDescription = description.text, !gotDescription.isEmpty else { return gotTask}
     let gotPriority = priority.value
@@ -68,25 +68,10 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     private let encoder = JSONEncoder()
 
 
-    @IBAction func addTask(_ sender: UIButton){
-        /*print("ADDDDDD")
-//        var newTasks: [Task]
-        
-        guard let count = UserDefaults().value(forKey: "count") as? Int else {
-            print("error")
-            return
-        }
-        
-        let newCount = count + 1
-        var newTask: Task
-        newTask = getTask(tfTitle,tfDescription,sldrPriority)
-
-
-        UserDefaults().set(newCount, forKey: "count")
-        saveTask()*/
+    @IBAction func addTask(_ sender: Any){
         // Create a new alert
-        var dialogMessage = UIAlertController(title: "Ошибка", message: "Авторизируйтесь, чтобы добавить задачу", preferredStyle: .alert)
-        var dialogMessage1 = UIAlertController(title: "Успешно", message: "Задача успешно добавлена", preferredStyle: .alert)
+        let dialogMessage = UIAlertController(title: "Ошибка", message: "Авторизируйтесь, чтобы добавить задачу", preferredStyle: .alert)
+        let dialogMessage1 = UIAlertController(title: "Успешно", message: "Задача успешно добавлена", preferredStyle: .alert)
         if (Auth.auth().currentUser == nil)
         {
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
@@ -101,12 +86,16 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         {
             Firebase()
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                // close add task view
+                self.navigationController?.popViewController(animated: true)
              })
             
             //Add OK button to a dialog message
             dialogMessage1.addAction(ok)
             // Present alert to user
             self.present(dialogMessage1, animated: true, completion: nil)
+           
+//            self.navigationController?.popViewController(animated: true)
         }
         
         //Firebase()
@@ -123,25 +112,22 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     var index = IndexPath()
     
     @objc func saveTask(){
-        guard let text = tfTitle.text, !text.isEmpty else {
-            return
-        }
-        guard let count = UserDefaults().value(forKey: "count") as? Int else {
-            return
-        }
-        let newCount = count + 1
-        UserDefaults().set(newCount, forKey: "count")
-        UserDefaults().set(text, forKey: "task_\(newCount)")
-        
-        print("set count", newCount)
-        UserDefaults.standard.synchronize()
-        
-
-        let vc = storyboard?.instantiateViewController(withIdentifier: "tasks_vc") as! TasksViewController
-
-        //vc.tasks.append("KEKICH")
-        print(vc.tasks)
-        vc.updateTasks()
+//        guard let text = tfTitle.text, !text.isEmpty else {
+//            return
+//        }
+//        guard let count = UserDefaults().value(forKey: "count") as? Int else {
+//            return
+//        }
+//        let newCount = count + 1
+//        UserDefaults().set(newCount, forKey: "count")
+//        UserDefaults().set(text, forKey: "task_\(newCount)")
+//
+//        print("set count", newCount)
+//        UserDefaults.standard.synchronize()
+//
+//
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "tasks_vc") as! TasksViewController
+//        vc.updateTasks()
 
         
     }
@@ -155,7 +141,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
 
 
         // 3
-        let task = Task(Title: tfTitle.text ?? "-",Description: tfDescription.text ?? "-",Priority: sldrPriority.value)
+        let task = Task(Title: tfTitle.text ?? "-",Description: tfDescription.text ?? "-",Priority: sldrPriority.value, Done: false)
 
         do {
           // 4

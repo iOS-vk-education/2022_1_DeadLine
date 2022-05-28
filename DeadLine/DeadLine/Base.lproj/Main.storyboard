@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="knL-ev-ZyP" kind="relationship" relationship="rootViewController" id="si8-GN-EPF"/>
+                        <segue destination="pHs-RH-aMw" kind="relationship" relationship="rootViewController" id="84a-Tg-8Qr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BsW-jd-0cs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -55,13 +55,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcq-D0-Owk">
-                                <rect key="frame" x="12" y="223" width="67.5" height="17"/>
+                                <rect key="frame" x="12" y="275" width="67.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <color key="highlightedColor" systemColor="systemGray5Color"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Введите описание" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEV-OK-VCN">
-                                <rect key="frame" x="12" y="248" width="390" height="64"/>
+                                <rect key="frame" x="12" y="300" width="390" height="64"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="MI9-LQ-SVa"/>
@@ -76,19 +76,19 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Создать задачу" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mll-KY-uZ4">
-                                <rect key="frame" x="92" y="88" width="229" height="39"/>
+                                <rect key="frame" x="92" y="140" width="229" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swd-DN-F5t">
-                                <rect key="frame" x="12" y="140" width="66" height="17"/>
+                                <rect key="frame" x="12" y="192" width="66" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <color key="highlightedColor" systemColor="systemGray5Color"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Введите название" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GFs-hc-QyB">
-                                <rect key="frame" x="12" y="165" width="390" height="34"/>
+                                <rect key="frame" x="12" y="217" width="390" height="34"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -100,16 +100,16 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Важность" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTW-Vk-0En">
-                                <rect key="frame" x="12" y="336" width="66" height="17"/>
+                                <rect key="frame" x="12" y="388" width="66" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <color key="highlightedColor" systemColor="systemGray5Color"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="AZ7-ZQ-XhU">
-                                <rect key="frame" x="10" y="361" width="394" height="31"/>
+                                <rect key="frame" x="10" y="413" width="394" height="31"/>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPt-w7-zRC">
-                                <rect key="frame" x="12" y="415" width="390" height="44"/>
+                                <rect key="frame" x="12" y="467" width="390" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="xun-kA-irv"/>
                                 </constraints>
@@ -159,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0A-X9-51q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1775.3623188405797" y="1512.7232142857142"/>
+            <point key="canvasLocation" x="-907" y="2214"/>
         </scene>
         <!--Поиск-->
         <scene sceneID="1F7-sj-eT4">
@@ -346,21 +346,23 @@
                             <outlet property="delegate" destination="T1x-Hh-1s9" id="75J-Da-8zh"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Мои Задачи" id="hWP-LT-toA">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="x18-4T-wnM">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pwY-dC-osL">
-                                <rect key="frame" x="292.5" y="5" width="101.5" height="34.5"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="6GI-aY-8kx">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="PDf-He-Hyp">
+                                <rect key="frame" x="293.5" y="5" width="100.5" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Обновить"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Добавить"/>
                                 <connections>
-                                    <action selector="reload:" destination="T1x-Hh-1s9" eventType="touchUpInside" id="WVx-eG-Jf8"/>
+                                    <segue destination="knL-ev-ZyP" kind="show" id="wd3-lK-svG"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="refreshbtn" destination="pwY-dC-osL" id="PjT-af-gh0"/>
+                        <outlet property="addBtn" destination="PDf-He-Hyp" id="q46-9U-BjA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Py-Pf-xzw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -601,6 +603,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rzb-cp-gIC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1112" y="1311"/>
+        </scene>
+        <!--DoneTasks-->
+        <scene sceneID="pqo-gF-GCh">
+            <objects>
+                <tableViewController storyboardIdentifier="done_tasks_vc" title="DoneTasks" id="pHs-RH-aMw" customClass="TasksViewController" customModule="DeadLine" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="4Gw-1d-GVt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" rowHeight="118" id="mOW-77-T07" customClass="DemoTableViewCell" customModule="DeadLine" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="118"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mOW-77-T07" id="Dgq-DV-pV2">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="118"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myt-c7-LcB">
+                                            <rect key="frame" x="10" y="10" width="394" height="98"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4B-ub-2TS">
+                                                    <rect key="frame" x="70" y="0.0" width="235" height="98"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHW-RC-GKr">
+                                                    <rect key="frame" x="20" y="0.0" width="35" height="98"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="radiobtn_off"/>
+                                                    <state key="selected" image="radiobtn_on"/>
+                                                    <connections>
+                                                        <action selector="radioSelected:" destination="mOW-77-T07" eventType="touchUpInside" id="V2U-AF-oGm"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="myt-c7-LcB" firstAttribute="top" secondItem="Dgq-DV-pV2" secondAttribute="top" constant="10" id="6Gx-0g-C6Q"/>
+                                        <constraint firstAttribute="bottom" secondItem="myt-c7-LcB" secondAttribute="bottom" constant="10" id="adf-RS-Yo7"/>
+                                        <constraint firstAttribute="trailing" secondItem="myt-c7-LcB" secondAttribute="trailing" constant="10" id="eYM-Nl-25j"/>
+                                        <constraint firstItem="myt-c7-LcB" firstAttribute="leading" secondItem="Dgq-DV-pV2" secondAttribute="leading" constant="10" id="qth-66-Gj1"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="backgroundView" destination="Dgq-DV-pV2" id="pxJ-5E-hQJ"/>
+                                    <outlet property="cell" destination="myt-c7-LcB" id="xgb-fZ-we1"/>
+                                    <outlet property="myLablel" destination="v4B-ub-2TS" id="tr4-Dz-ffp"/>
+                                    <outlet property="myOption" destination="pHW-RC-GKr" id="Oen-0G-BoC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pHs-RH-aMw" id="UVC-hO-FAR"/>
+                            <outlet property="delegate" destination="pHs-RH-aMw" id="wVQ-gd-VSK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Выполнено" id="93g-0p-NwT"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcb-Xs-tkJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1775" y="1513"/>
         </scene>
     </scenes>
     <resources>

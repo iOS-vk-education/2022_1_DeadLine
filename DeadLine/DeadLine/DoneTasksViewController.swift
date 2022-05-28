@@ -1,15 +1,17 @@
-////
-////  TasksViewController.swift
-////  DeadLine
-////
-////  Created by Roman Nizovtsev on 18.04.2022.
-////
+//
+//  DoneTasksViewController.swift
+//  DeadLine
+//
+//  Created by Андрей Кравцов on 28.05.2022.
+//
 
-import UIKit
+import Foundation
 import FirebaseAuth
 import FirebaseDatabase
-class TasksViewController: UITableViewController {
+
+class DoneTasksViewController: UITableViewController {
     var Tasks: [Task] = []
+    var tasks = ["first","second"]
     private lazy var databasePath: DatabaseReference? = {
       // 1
       guard let uid = Auth.auth().currentUser?.uid else {
@@ -27,7 +29,6 @@ class TasksViewController: UITableViewController {
     private let decoder = JSONDecoder()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let nib = UINib(nibName: "DemoTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "DemoTableViewCell")
         tableView.delegate = self
@@ -36,9 +37,28 @@ class TasksViewController: UITableViewController {
         loadFirebase()
     }
     
+        
+        func updateTasks(){
+            print("Updata table")
+            tasks.removeAll()
+            guard let count = UserDefaults().value(forKey: "count") as? Int else {
+                return
+            }
+            for x in 0..<count{
+                if let task = UserDefaults().value(forKey: "task_\(x+1)") as? String{
+                    tasks.append(task)
+                }
+            }
+            //tasks.append("!!!!")
+            print(tasks)
+            tableView.reloadData()
     
-    @IBOutlet weak var addBtn: UIButton!
     
+        }
+    
+        
+    
+
     // MARK: - Table view data source
   
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,6 +77,7 @@ class TasksViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("ALL TASSKS", tasks.count, tasks)
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! DemoTableViewCell
 
         
@@ -93,11 +114,14 @@ class TasksViewController: UITableViewController {
               // 6
               let task = try self.decoder.decode(Task.self, from: taskData)
               // 7
-                self.Tasks.append(task)
+                if (task.Done == true){
+                    self.Tasks.append(task)
+                }
             } catch {
               print("an error occurred", error)
             }
-              //print(Tasks)
+              print("Done Tasks")
+              print(self.Tasks)
               self.tableView.reloadData()
           }
     }

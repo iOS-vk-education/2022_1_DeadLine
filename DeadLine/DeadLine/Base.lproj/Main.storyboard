@@ -114,7 +114,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="xun-kA-irv"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Создать">
+                                <buttonConfiguration key="configuration" style="filled" title="Создать" cornerStyle="large">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -321,9 +321,22 @@
                                                         <action selector="radioSelected:" destination="zgw-Vz-39Z" eventType="touchUpInside" id="rrX-gD-mni"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRE-Nf-JvU">
+                                                    <rect key="frame" x="338.5" y="26" width="47.5" height="45"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="delete.left" catalog="system" title=""/>
+                                                    <connections>
+                                                        <action selector="onClickDeleteButton1:" destination="T1x-Hh-1s9" eventType="touchUpInside" id="rh1-Cb-O2H"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                            <constraints>
+                                                <constraint firstItem="SRE-Nf-JvU" firstAttribute="top" secondItem="jeq-T9-EyQ" secondAttribute="top" constant="26" id="2Fx-Mc-cKK"/>
+                                                <constraint firstAttribute="trailing" secondItem="SRE-Nf-JvU" secondAttribute="trailing" constant="8" id="KsT-2t-65Y"/>
+                                                <constraint firstAttribute="bottom" secondItem="SRE-Nf-JvU" secondAttribute="bottom" constant="27" id="nF1-M0-m2h"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -402,7 +415,7 @@
                                     <constraint firstAttribute="height" constant="60" id="VMs-XO-2rP"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Вход">
+                                <buttonConfiguration key="configuration" style="filled" title="Вход" cornerStyle="large">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -415,7 +428,7 @@
                                     <constraint firstAttribute="height" constant="60" id="SWa-XP-IaO"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Регистрация">
+                                <buttonConfiguration key="configuration" style="filled" title="Регистрация" cornerStyle="large">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -547,7 +560,7 @@
                                             <constraint firstAttribute="height" constant="44" id="7zl-fE-cGd"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Зарегистрироваться">
+                                        <buttonConfiguration key="configuration" style="filled" title="Зарегистрироваться" cornerStyle="large">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -616,7 +629,7 @@
                                             <constraint firstAttribute="height" constant="44" id="qYF-pT-JSq"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Вход">
+                                        <buttonConfiguration key="configuration" style="filled" title="Вход" cornerStyle="large">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -722,6 +735,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="delete.left" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>

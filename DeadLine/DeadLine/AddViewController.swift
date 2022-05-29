@@ -151,7 +151,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
           let json = try JSONSerialization.jsonObject(with: data)
 
           // 6
-          databasePath.childByAutoId()
+            databasePath.child(task.Title)
             .setValue(json)
         } catch {
           print("an error occurred", error)

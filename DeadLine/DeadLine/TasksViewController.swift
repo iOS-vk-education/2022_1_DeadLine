@@ -37,6 +37,16 @@ class TasksViewController: UITableViewController {
        
     }
     
+    @IBAction func celSelected(_ sender: UIButton){
+        print("click")
+        let point = sender.convert(CGPoint.zero, to: tableView)
+        guard let indexpath = tableView.indexPathForRow(at: point) else {return}
+        let param = Tasks[indexpath.row].Title
+        let vc = storyboard?.instantiateViewController(withIdentifier: "taskDetails_vc") as! TaskDetailsViewController
+        vc.task = param
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     // 3
     private let decoder = JSONDecoder()
     override func viewDidLoad() {

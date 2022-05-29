@@ -10,8 +10,6 @@ import Firebase
 
 class OtherViewController: UIViewController {
     let defaults = UserDefaults.standard
-    @IBOutlet weak var lblText: UILabel!
-    
     @IBOutlet weak var btnDel: UIButton!
     @IBOutlet weak var btnRegister: UIButton!
     @IBOutlet weak var btnIn: UIButton!
@@ -19,12 +17,9 @@ class OtherViewController: UIViewController {
     @IBOutlet weak var btnOut: UIButton!
     @IBOutlet weak var lblEmail: UILabel!
     private lazy var databasePath: DatabaseReference? = {
-      // 1
       guard let uid = Auth.auth().currentUser?.uid else {
         return nil
       }
-
-      // 2
       let ref = Database.database()
         .reference()
         .child("users/\(uid)/tasks")
@@ -32,11 +27,8 @@ class OtherViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        // Do any additional setup after loading the view.
     }
    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) // No need for semicolon
         if (Auth.auth().currentUser == nil)
@@ -47,7 +39,6 @@ class OtherViewController: UIViewController {
             btnOut.isHidden = true
             btnIn.isHidden = false
             btnRegister.isHidden = false
-            
         }
         else
         {
@@ -59,10 +50,8 @@ class OtherViewController: UIViewController {
             let value = defaults.string(forKey: "user")
             lblEmail.text = value
         }
-        
     }
     
-   
     @IBAction func btnOutClicked(_ sender: Any) {
         try! Auth.auth().signOut()
         lblEmail.text = "Авторизируйтесь для начала работы с приложением"
@@ -71,35 +60,26 @@ class OtherViewController: UIViewController {
         btnRegister.isHidden = false
         btnDel.isHidden = true
         btnAbout.isHidden = true
-
-        
     }
     
     @IBAction func btnDeleteClicked(_ sender: Any) {
         let dialogMessage = UIAlertController(title: "Удалено", message: "Задачи успешно удалены", preferredStyle: .alert)
         databasePath?.ref.removeValue { error, _ in
-            print(error?.localizedDescription)
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
              })
-            
             //Add OK button to a dialog message
             dialogMessage.addAction(ok)
             // Present alert to user
             self.present(dialogMessage, animated: true, completion: nil)
         }
     }
+    
     @IBAction func btnAboutClicked(_ sender: Any) {
         let dialogMessage = UIAlertController(title: "О приложении", message: "Приложение было разработано командой DeadLine.", preferredStyle: .alert)
-        
-            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-             })
-            
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in})
             //Add OK button to a dialog message
             dialogMessage.addAction(ok)
             // Present alert to user
             self.present(dialogMessage, animated: true, completion: nil)
         }
-    
- 
-
 }

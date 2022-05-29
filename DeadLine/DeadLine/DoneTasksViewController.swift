@@ -10,16 +10,12 @@ import FirebaseAuth
 import FirebaseDatabase
 class DoneTasksViewController: UITableViewController {
     var Tasks: [Task] = []
-   
     private let encoder = JSONEncoder()
-    @IBOutlet weak var delete: UIButton!
+    private let decoder = JSONDecoder()
     private lazy var databasePath: DatabaseReference? = {
-      // 1
       guard let uid = Auth.auth().currentUser?.uid else {
         return nil
       }
-
-      // 2
       let ref = Database.database()
         .reference()
         .child("users/\(uid)/tasks")
@@ -31,34 +27,24 @@ class DoneTasksViewController: UITableViewController {
         guard let indexpath = tableView.indexPathForRow(at: point) else {return}
         let reference = databasePath?.ref.child(Tasks[indexpath.row].Title)
         reference?.removeValue { error, _ in
-                     print(error?.localizedDescription)
+                     print(error?.localizedDescription ?? "error")
                  }
         Tasks.remove(at: indexpath.row)
         tableView.beginUpdates()
         tableView.deleteRows(at: [IndexPath(row: indexpath.row, section: 0)], with: .left)
         tableView.endUpdates()
     }
-   
-    
 
     @IBAction func radioSelected1(_ sender: UIButton) {
         sender.isSelected = false
         let point = sender.convert(CGPoint.zero, to: tableView)
         guard let indexpath = tableView.indexPathForRow(at: point) else {return}
         let reference = databasePath?.ref.child(Tasks[indexpath.row].Title)
-        if(Tasks[indexpath.row].Done == true)
-        {
-        Tasks[indexpath.row].Done = false
-
-
+        if(Tasks[indexpath.row].Done == true){
+            Tasks[indexpath.row].Done = false
             do {
-              // 4
               let data = try encoder.encode(Tasks[indexpath.row])
-
-              // 5
               let json = try JSONSerialization.jsonObject(with: data)
-
-              // 6
                 reference?
                 .setValue(json)
             } catch {
@@ -68,19 +54,13 @@ class DoneTasksViewController: UITableViewController {
         tableView.beginUpdates()
         tableView.deleteRows(at: [IndexPath(row: indexpath.row, section: 0)], with: .left)
         tableView.endUpdates()
-       
         }
-        
     }
     
-   
-    // 3
-    private let decoder = JSONDecoder()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("УДАЛЯЕМ")
@@ -93,9 +73,6 @@ class DoneTasksViewController: UITableViewController {
         print("Вызываем Лоад")
         loadFirebase()
     }
-   
-    
-    @IBOutlet weak var addBtn: UIButton!
     
     // MARK: - Table view data source
   
@@ -113,28 +90,20 @@ class DoneTasksViewController: UITableViewController {
         return 120
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! DemoTableViewCell
-        print("Индекс")
-        print(indexPath.row)
-        if(Tasks.count>0)
-        {
-        cell.myLablel?.text =  Tasks[indexPath.row].Title
+        if(Tasks.count>0){
+            cell.myLablel?.text =  Tasks[indexPath.row].Title
         }
         return cell
     }
     
-
     func loadFirebase()
     {
         let databasePath: DatabaseReference? = {
-      // 1
       guard let uid = Auth.auth().currentUser?.uid else {
         return nil
       }
-
-      // 2
       let ref = Database.database()
         .reference()
         .child("users/\(uid)/tasks")
@@ -143,42 +112,25 @@ class DoneTasksViewController: UITableViewController {
         guard let databasePath = databasePath else {
           return
         }
-        // 2
         databasePath
           .observe(.childAdded) { [weak self] snapshot in
-
-            // 3
             guard
               let self = self,
               var json = snapshot.value as? [String: Any]
             else {
               return
             }
-            
-             
-                       
-            json["id"] = snapshot.key
-            
             do {
-
-              // 5
               let taskData = try JSONSerialization.data(withJSONObject: json)
-              // 6
               let task = try self.decoder.decode(Task.self, from: taskData)
-              // 7
-                if(task.Done == true)
-                {
-                self.Tasks.append(task)
+                if(task.Done == true){
+                    self.Tasks.append(task)
                 }
-                print(task.Title)
-                print(self.Tasks.count)
             } catch {
               print("an error occurred", error)
             }
-              print(self.Tasks)
               self.tableView.reloadData()
           }
         self.tableView.reloadData()
     }
-    
 }

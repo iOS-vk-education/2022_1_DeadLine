@@ -11,19 +11,14 @@ class DemoTableViewCell: UITableViewCell {
     
     @IBOutlet var myLablel: UILabel!
     @IBOutlet var myOption: UIButton!
-    
-    
     @IBOutlet weak var cell: UIView!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         cell.layer.cornerRadius = 15
-        
         cell.layer.shadowRadius = 5
         cell.layer.shadowOpacity = 0.25
         cell.layer.shadowOffset = CGSize(width: 0, height: 3)
-    
     }
     
     func setCellHeader(_ title:String){
@@ -37,7 +32,4 @@ class DemoTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-
-    
 }

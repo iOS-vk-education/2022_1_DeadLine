@@ -18,11 +18,24 @@ class OtherViewController: UIViewController {
     @IBOutlet weak var btnAbout: UIButton!
     @IBOutlet weak var btnOut: UIButton!
     @IBOutlet weak var lblEmail: UILabel!
+    private lazy var databasePath: DatabaseReference? = {
+      // 1
+      guard let uid = Auth.auth().currentUser?.uid else {
+        return nil
+      }
+
+      // 2
+      let ref = Database.database()
+        .reference()
+        .child("users/\(uid)/tasks")
+      return ref
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
        
         // Do any additional setup after loading the view.
     }
+   
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) // No need for semicolon
@@ -49,6 +62,7 @@ class OtherViewController: UIViewController {
         
     }
     
+   
     @IBAction func btnOutClicked(_ sender: Any) {
         try! Auth.auth().signOut()
         lblEmail.text = "Авторизируйтесь для начала работы с приложением"
@@ -61,6 +75,30 @@ class OtherViewController: UIViewController {
         
     }
     
+    @IBAction func btnDeleteClicked(_ sender: Any) {
+        let dialogMessage = UIAlertController(title: "Удалено", message: "Задачи успешно удалены", preferredStyle: .alert)
+        databasePath?.ref.removeValue { error, _ in
+            print(error?.localizedDescription)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+             })
+            
+            //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+            // Present alert to user
+            self.present(dialogMessage, animated: true, completion: nil)
+        }
+    }
+    @IBAction func btnAboutClicked(_ sender: Any) {
+        let dialogMessage = UIAlertController(title: "О приложении", message: "Приложение было разработано командой DeadLine.", preferredStyle: .alert)
+        
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+             })
+            
+            //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+            // Present alert to user
+            self.present(dialogMessage, animated: true, completion: nil)
+        }
     
  
 

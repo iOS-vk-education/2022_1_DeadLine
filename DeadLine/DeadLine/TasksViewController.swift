@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseDatabase
 class TasksViewController: UITableViewController {
     var Tasks: [Task] = []
+    private let encoder = JSONEncoder()
     @IBOutlet weak var delete: UIButton!
     private lazy var databasePath: DatabaseReference? = {
       // 1
@@ -37,6 +38,38 @@ class TasksViewController: UITableViewController {
        
     }
     
+
+    @IBAction func radioSelected(_ sender: UIButton) {
+        sender.isSelected = true
+        let point = sender.convert(CGPoint.zero, to: tableView)
+        guard let indexpath = tableView.indexPathForRow(at: point) else {return}
+        let reference = databasePath?.ref.child(Tasks[indexpath.row].Title)
+        if(Tasks[indexpath.row].Done == false)
+        {
+        Tasks[indexpath.row].Done = true
+
+
+            do {
+              // 4
+              let data = try encoder.encode(Tasks[indexpath.row])
+
+              // 5
+              let json = try JSONSerialization.jsonObject(with: data)
+
+              // 6
+                reference?
+                .setValue(json)
+            } catch {
+              print("an error occurred", error)
+            }
+        Tasks.remove(at: indexpath.row)
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [IndexPath(row: indexpath.row, section: 0)], with: .left)
+        tableView.endUpdates()
+       
+        }
+    }
+   
     // 3
     private let decoder = JSONDecoder()
     override func viewDidLoad() {
@@ -91,7 +124,19 @@ class TasksViewController: UITableViewController {
 
     func loadFirebase()
     {
-        
+        var databasePath: DatabaseReference? = {
+      // 1
+      guard let uid = Auth.auth().currentUser?.uid else {
+        return nil
+      }
+
+      // 2
+      let ref = Database.database()
+        .reference()
+        .child("users/\(uid)/tasks")
+      return ref
+    }()
+        print("1")
         guard let databasePath = databasePath else {
           return
         }
@@ -106,7 +151,7 @@ class TasksViewController: UITableViewController {
             else {
               return
             }
-            
+              print("2")
              
                        
             json["id"] = snapshot.key
@@ -118,15 +163,20 @@ class TasksViewController: UITableViewController {
               // 6
               let task = try self.decoder.decode(Task.self, from: taskData)
               // 7
+                if(task.Done == false)
+                {
                 self.Tasks.append(task)
+                }
                 print(task.Title)
                 print(self.Tasks.count)
             } catch {
               print("an error occurred", error)
             }
               print(self.Tasks)
+              print("3")
               self.tableView.reloadData()
           }
+        self.tableView.reloadData()
     }
     
 }

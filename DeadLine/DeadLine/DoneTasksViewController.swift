@@ -1,17 +1,18 @@
-//
-//  DoneTasksViewController.swift
-//  DeadLine
-//
-//  Created by Андрей Кравцов on 28.05.2022.
-//
+////
+////  TasksViewController.swift
+////  DeadLine
+////
+////  Created by Roman Nizovtsev on 18.04.2022.
+////
 
-import Foundation
+import UIKit
 import FirebaseAuth
 import FirebaseDatabase
-
 class DoneTasksViewController: UITableViewController {
     var Tasks: [Task] = []
-    var tasks = ["first","second"]
+   
+    private let encoder = JSONEncoder()
+    @IBOutlet weak var delete: UIButton!
     private lazy var databasePath: DatabaseReference? = {
       // 1
       guard let uid = Auth.auth().currentUser?.uid else {
@@ -24,41 +25,78 @@ class DoneTasksViewController: UITableViewController {
         .child("users/\(uid)/tasks")
       return ref
     }()
+    
+    @IBAction func onClickDeleteButton2(_ sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: tableView)
+        guard let indexpath = tableView.indexPathForRow(at: point) else {return}
+        let reference = databasePath?.ref.child(Tasks[indexpath.row].Title)
+        reference?.removeValue { error, _ in
+                     print(error?.localizedDescription)
+                 }
+        Tasks.remove(at: indexpath.row)
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [IndexPath(row: indexpath.row, section: 0)], with: .left)
+        tableView.endUpdates()
+    }
+   
+    
 
+    @IBAction func radioSelected1(_ sender: UIButton) {
+        sender.isSelected = false
+        let point = sender.convert(CGPoint.zero, to: tableView)
+        guard let indexpath = tableView.indexPathForRow(at: point) else {return}
+        let reference = databasePath?.ref.child(Tasks[indexpath.row].Title)
+        if(Tasks[indexpath.row].Done == true)
+        {
+        Tasks[indexpath.row].Done = false
+
+
+            do {
+              // 4
+              let data = try encoder.encode(Tasks[indexpath.row])
+
+              // 5
+              let json = try JSONSerialization.jsonObject(with: data)
+
+              // 6
+                reference?
+                .setValue(json)
+            } catch {
+              print("an error occurred", error)
+            }
+        Tasks.remove(at: indexpath.row)
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [IndexPath(row: indexpath.row, section: 0)], with: .left)
+        tableView.endUpdates()
+       
+        }
+        
+    }
+    
+   
     // 3
     private let decoder = JSONDecoder()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("УДАЛЯЕМ")
+        self.Tasks.removeAll()
         let nib = UINib(nibName: "DemoTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "DemoTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
+        print("Вызываем Лоад")
         loadFirebase()
     }
+   
     
-        
-        func updateTasks(){
-            print("Updata table")
-            tasks.removeAll()
-            guard let count = UserDefaults().value(forKey: "count") as? Int else {
-                return
-            }
-            for x in 0..<count{
-                if let task = UserDefaults().value(forKey: "task_\(x+1)") as? String{
-                    tasks.append(task)
-                }
-            }
-            //tasks.append("!!!!")
-            print(tasks)
-            tableView.reloadData()
+    @IBOutlet weak var addBtn: UIButton!
     
-    
-        }
-    
-        
-    
-
     // MARK: - Table view data source
   
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -77,21 +115,34 @@ class DoneTasksViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("ALL TASSKS", tasks.count, tasks)
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! DemoTableViewCell
-
-        
+        print("Индекс")
+        print(indexPath.row)
+        if(Tasks.count>0)
+        {
         cell.myLablel?.text =  Tasks[indexPath.row].Title
+        }
         return cell
     }
+    
 
     func loadFirebase()
     {
-        
+        let databasePath: DatabaseReference? = {
+      // 1
+      guard let uid = Auth.auth().currentUser?.uid else {
+        return nil
+      }
+
+      // 2
+      let ref = Database.database()
+        .reference()
+        .child("users/\(uid)/tasks")
+      return ref
+    }()
         guard let databasePath = databasePath else {
           return
         }
-
         // 2
         databasePath
           .observe(.childAdded) { [weak self] snapshot in
@@ -103,10 +154,11 @@ class DoneTasksViewController: UITableViewController {
             else {
               return
             }
-
-            // 4
+            
+             
+                       
             json["id"] = snapshot.key
-
+            
             do {
 
               // 5
@@ -114,15 +166,19 @@ class DoneTasksViewController: UITableViewController {
               // 6
               let task = try self.decoder.decode(Task.self, from: taskData)
               // 7
-                if (task.Done == true){
-                    self.Tasks.append(task)
+                if(task.Done == true)
+                {
+                self.Tasks.append(task)
                 }
+                print(task.Title)
+                print(self.Tasks.count)
             } catch {
               print("an error occurred", error)
             }
-              print("Done Tasks")
               print(self.Tasks)
               self.tableView.reloadData()
           }
+        self.tableView.reloadData()
     }
+    
 }

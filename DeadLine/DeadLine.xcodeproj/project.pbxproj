@@ -22,6 +22,7 @@
 		63EBD9FE2803560E0031C09E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EBD9FC2803560E0031C09E /* LaunchScreen.storyboard */; };
 		D9034EEE284269FD007D6ADB /* DoneTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9034EED284269FD007D6ADB /* DoneTasksViewController.swift */; };
 		D943D2A52842403000000BA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D943D2A42842403000000BA0 /* GoogleService-Info.plist */; };
+		D97169922843977400C22AA7 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97169912843977400C22AA7 /* TaskDetailsViewController.swift */; };
 		D977C4CF28429D6E00D34FC1 /* teaser.png in Resources */ = {isa = PBXBuildFile; fileRef = D977C4CE28429D6D00D34FC1 /* teaser.png */; };
 		D9C212C0280EE51D00F64ABF /* DemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C212BE280EE51D00F64ABF /* DemoTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		82B3A298D3EBA4734FFDAF63 /* Pods-DeadLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeadLine.release.xcconfig"; path = "Target Support Files/Pods-DeadLine/Pods-DeadLine.release.xcconfig"; sourceTree = "<group>"; };
 		D9034EED284269FD007D6ADB /* DoneTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTasksViewController.swift; sourceTree = "<group>"; };
 		D943D2A42842403000000BA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D97169912843977400C22AA7 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 		D977C4CE28429D6D00D34FC1 /* teaser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teaser.png; path = ../../../Downloads/teaser.png; sourceTree = "<group>"; };
 		D9C212BE280EE51D00F64ABF /* DemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +102,7 @@
 				D9C212BE280EE51D00F64ABF /* DemoTableViewCell.swift */,
 				6358F4582810399900167BFF /* Model.swift */,
 				D9034EED284269FD007D6ADB /* DoneTasksViewController.swift */,
+				D97169912843977400C22AA7 /* TaskDetailsViewController.swift */,
 			);
 			path = DeadLine;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				63DD415F280F29CA004F8A1F /* SignUpViewController.swift in Sources */,
 				D9C212C0280EE51D00F64ABF /* DemoTableViewCell.swift in Sources */,
 				D9034EEE284269FD007D6ADB /* DoneTasksViewController.swift in Sources */,
+				D97169922843977400C22AA7 /* TaskDetailsViewController.swift in Sources */,
 				63DD414C280DF0FE004F8A1F /* TasksViewController.swift in Sources */,
 				63DD414E280DF143004F8A1F /* OtherViewController.swift in Sources */,
 				63EBD9F62803560D0031C09E /* ViewController.swift in Sources */,
@@ -414,7 +418,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kravtandr.DeadLine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.DeadLine.DeadLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -443,7 +447,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kravtandr.DeadLine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.DeadLine.DeadLine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -11,6 +11,7 @@ class DemoTableViewCell: UITableViewCell {
     
     @IBOutlet var myLablel: UILabel!
     @IBOutlet var myOption: UIButton!
+    @IBOutlet var LabelContainer: UIButton!
     
     
     @IBOutlet weak var cell: UIView!
@@ -36,6 +37,10 @@ class DemoTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @IBAction func celSelected(_ sender: UIButton){
+        print("click")
     }
     
 }

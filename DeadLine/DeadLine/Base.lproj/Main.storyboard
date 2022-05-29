@@ -159,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0A-X9-51q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-907" y="2214"/>
+            <point key="canvasLocation" x="-1258" y="2298"/>
         </scene>
         <!--Поиск-->
         <scene sceneID="1F7-sj-eT4">
@@ -284,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBJ-mm-7iZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-97" y="2214"/>
+            <point key="canvasLocation" x="1954" y="2431"/>
         </scene>
         <!--Tasks-->
         <scene sceneID="v6p-oO-yYa">
@@ -329,6 +329,15 @@
                                                     <buttonConfiguration key="configuration" style="plain" image="delete.left" catalog="system" title=""/>
                                                     <connections>
                                                         <action selector="onClickDeleteButton1:" destination="T1x-Hh-1s9" eventType="touchUpInside" id="rh1-Cb-O2H"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" alpha="0.95999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gge-aO-DxZ">
+                                                    <rect key="frame" x="63" y="-9" width="258" height="119"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="celSelected:" destination="T1x-Hh-1s9" eventType="touchUpInside" id="R7y-cb-vYU"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -382,7 +391,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Py-Pf-xzw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-907" y="1513"/>
+            <point key="canvasLocation" x="-907.24637681159425" y="1512.7232142857142"/>
         </scene>
         <!--Other View Controller-->
         <scene sceneID="YEx-Zh-jZ3">
@@ -753,7 +762,123 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcb-Xs-tkJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1775" y="1513"/>
+            <point key="canvasLocation" x="-2693" y="1513"/>
+        </scene>
+        <!--Task Details View Controller-->
+        <scene sceneID="oOz-gZ-AQ7">
+            <objects>
+                <viewController storyboardIdentifier="taskDetails_vc" id="t4C-ik-mz3" customClass="TaskDetailsViewController" customModule="DeadLine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4dz-Rb-BYB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlw-qs-Bzg">
+                                <rect key="frame" x="12" y="179" width="67.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <color key="highlightedColor" systemColor="systemGray5Color"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Введите описание" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J26-6y-p7G">
+                                <rect key="frame" x="12" y="204" width="390" height="64"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="hBg-Bo-NcP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkC-Mp-Ovi">
+                                <rect key="frame" x="12" y="96" width="66" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <color key="highlightedColor" systemColor="systemGray5Color"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Введите название" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cmr-JK-zOJ">
+                                <rect key="frame" x="12" y="121" width="390" height="34"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Важность" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPl-wh-ZPd">
+                                <rect key="frame" x="12" y="292" width="66" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <color key="highlightedColor" systemColor="systemGray5Color"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="T7s-Qk-CpI">
+                                <rect key="frame" x="10" y="317" width="394" height="31"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyB-e7-FVA">
+                                <rect key="frame" x="12" y="371" width="390" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="3CW-JT-CIB"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Сохранить">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addTask:" destination="t4C-ik-mz3" eventType="touchUpInside" id="g6o-al-BPl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Редактировать задачу" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxF-Wa-vmv">
+                                <rect key="frame" x="40" y="120" width="326" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IM0-8I-6v7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DxF-Wa-vmv" firstAttribute="top" secondItem="4dz-Rb-BYB" secondAttribute="top" constant="120" id="0fj-zd-2eg"/>
+                            <constraint firstItem="IM0-8I-6v7" firstAttribute="trailing" secondItem="T7s-Qk-CpI" secondAttribute="trailing" constant="12" id="7rY-ec-Cjm"/>
+                            <constraint firstItem="bkC-Mp-Ovi" firstAttribute="top" secondItem="IM0-8I-6v7" secondAttribute="top" constant="52" id="A8f-b0-dNy"/>
+                            <constraint firstItem="EyB-e7-FVA" firstAttribute="leading" secondItem="IM0-8I-6v7" secondAttribute="leading" constant="12" id="CH3-Tr-LM7"/>
+                            <constraint firstItem="IM0-8I-6v7" firstAttribute="trailing" secondItem="J26-6y-p7G" secondAttribute="trailing" constant="12" id="Dyw-F0-eg6"/>
+                            <constraint firstItem="T7s-Qk-CpI" firstAttribute="leading" secondItem="IM0-8I-6v7" secondAttribute="leading" constant="12" id="ErU-Vp-4nM"/>
+                            <constraint firstItem="bkC-Mp-Ovi" firstAttribute="leading" secondItem="IM0-8I-6v7" secondAttribute="leading" constant="12" id="G0b-FJ-JBj"/>
+                            <constraint firstItem="aPl-wh-ZPd" firstAttribute="top" secondItem="J26-6y-p7G" secondAttribute="bottom" constant="24" id="Gfo-Lt-fFh"/>
+                            <constraint firstItem="aPl-wh-ZPd" firstAttribute="leading" secondItem="IM0-8I-6v7" secondAttribute="leading" constant="12" id="REp-ih-7kb"/>
+                            <constraint firstItem="tlw-qs-Bzg" firstAttribute="leading" secondItem="IM0-8I-6v7" secondAttribute="leading" constant="12" id="V0u-X2-6Ux"/>
+                            <constraint firstItem="IM0-8I-6v7" firstAttribute="trailing" secondItem="cmr-JK-zOJ" secondAttribute="trailing" constant="12" id="VjL-Sq-B5x"/>
+                            <constraint firstItem="DxF-Wa-vmv" firstAttribute="leading" secondItem="IM0-8I-6v7" secondAttribute="leading" constant="40" id="e6o-O9-No5"/>
+                            <constraint firstItem="IM0-8I-6v7" firstAttribute="trailing" secondItem="EyB-e7-FVA" secondAttribute="trailing" constant="12" id="jCA-nJ-6Ja"/>
+                            <constraint firstItem="T7s-Qk-CpI" firstAttribute="top" secondItem="aPl-wh-ZPd" secondAttribute="bottom" constant="8" id="jL9-tr-gKk"/>
+                            <constraint firstItem="cmr-JK-zOJ" firstAttribute="top" secondItem="bkC-Mp-Ovi" secondAttribute="bottom" constant="8" id="kE7-oj-nti"/>
+                            <constraint firstItem="cmr-JK-zOJ" firstAttribute="leading" secondItem="IM0-8I-6v7" secondAttribute="leading" constant="12" id="lEL-AO-ckW"/>
+                            <constraint firstItem="J26-6y-p7G" firstAttribute="leading" secondItem="IM0-8I-6v7" secondAttribute="leading" constant="12" id="n95-AT-6pQ"/>
+                            <constraint firstItem="EyB-e7-FVA" firstAttribute="top" secondItem="T7s-Qk-CpI" secondAttribute="bottom" constant="24" id="nbB-g2-xcU"/>
+                            <constraint firstItem="IM0-8I-6v7" firstAttribute="trailing" secondItem="cmr-JK-zOJ" secondAttribute="trailing" constant="12" id="oba-LR-IHv"/>
+                            <constraint firstItem="DxF-Wa-vmv" firstAttribute="top" secondItem="4dz-Rb-BYB" secondAttribute="top" constant="120" id="rBg-Fh-W75"/>
+                            <constraint firstItem="tlw-qs-Bzg" firstAttribute="top" secondItem="cmr-JK-zOJ" secondAttribute="bottom" constant="24" id="sKJ-aJ-jLW"/>
+                            <constraint firstItem="J26-6y-p7G" firstAttribute="top" secondItem="tlw-qs-Bzg" secondAttribute="bottom" constant="8" id="smX-IP-mpe"/>
+                            <constraint firstItem="cmr-JK-zOJ" firstAttribute="leading" secondItem="IM0-8I-6v7" secondAttribute="leading" constant="12" id="wEw-sn-E7K"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gro-RA-RCn"/>
+                    <connections>
+                        <outlet property="btnAdd" destination="EyB-e7-FVA" id="dso-0A-ggq"/>
+                        <outlet property="sldrPriority" destination="T7s-Qk-CpI" id="eQY-9O-oKz"/>
+                        <outlet property="tfDescription" destination="J26-6y-p7G" id="asR-Lq-U7J"/>
+                        <outlet property="tfTitle" destination="cmr-JK-zOJ" id="cGE-Wg-mT9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5n-Zw-h0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-529" y="2298"/>
         </scene>
     </scenes>
     <resources>

@@ -161,11 +161,11 @@
             </objects>
             <point key="canvasLocation" x="-1258" y="2298"/>
         </scene>
-        <!--Поиск-->
+        <!--Задачи-->
         <scene sceneID="1F7-sj-eT4">
             <objects>
                 <navigationController id="DMq-e8-1El" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Поиск" image="magnifyingglass" catalog="system" id="ky3-As-JCW"/>
+                    <tabBarItem key="tabBarItem" title="Задачи" image="list.triangle" catalog="system" id="ky3-As-JCW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hqT-sC-EkH">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -407,7 +407,7 @@
                                     <constraint firstAttribute="height" constant="60" id="206-FX-VkG"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Выход" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="filled" title="Выход" cornerStyle="large">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
@@ -885,7 +885,7 @@
     <resources>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="delete.left" catalog="system" width="128" height="104"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="list.triangle" catalog="system" width="128" height="91"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="radiobtn_off" width="24" height="24"/>
         <image name="radiobtn_on" width="22" height="22"/>

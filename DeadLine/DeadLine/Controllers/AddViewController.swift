@@ -45,17 +45,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var tfDescription: UITextField!
     @IBOutlet var sldrPriority: UISlider!
     @IBOutlet var btnAdd: UIButton!
-    private let encoder = JSONEncoder()
-    private lazy var databasePath: DatabaseReference? = {
-      guard let uid = Auth.auth().currentUser?.uid else {
-        return nil
-      }
-      let ref = Database.database()
-        .reference()
-        .child("users/\(uid)/tasks")
-      return ref
-    }()
-    
+    let db = FirebaseDb()
     @IBAction func addTask(_ sender: Any){
         // Create a new alert
         let dialogMessage = UIAlertController(title: "Ошибка", message: "Авторизируйтесь, чтобы добавить задачу", preferredStyle: .alert)
@@ -68,7 +58,8 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             // Present alert to user
             self.present(dialogMessage, animated: true, completion: nil)
         }else{
-            Firebase()
+            let task = Task(Title: tfTitle.text ?? "-",Description: tfDescription.text ?? "-",Priority: sldrPriority.value, Done: false)
+            self.db.setTask(task: task)
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                 // close add task view
                 self.navigationController?.popViewController(animated: true)
@@ -85,18 +76,4 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         tfTitle.delegate = self
     }
     
-    func Firebase(){
-        guard let databasePath = databasePath else {
-          return
-        }
-        let task = Task(Title: tfTitle.text ?? "-",Description: tfDescription.text ?? "-",Priority: sldrPriority.value, Done: false)
-        do {
-          let data = try encoder.encode(task)
-          let json = try JSONSerialization.jsonObject(with: data)
-            databasePath.child(task.Title)
-            .setValue(json)
-        } catch {
-          print("an error occurred", error)
-        }
-    }
 }

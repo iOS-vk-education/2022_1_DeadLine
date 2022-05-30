@@ -11,21 +11,12 @@ import FirebaseDatabase
 class TasksViewController: UITableViewController {
     @IBOutlet weak var addBtn: UIButton!
     var Tasks: [Task] = []
-    private let encoder = JSONEncoder()
-    private lazy var databasePath: DatabaseReference? = {
-      guard let uid = Auth.auth().currentUser?.uid else {
-        return nil
-      }
-      let ref = Database.database()
-        .reference()
-        .child("users/\(uid)/tasks")
-      return ref
-    }()
+    let db = FirebaseDb()
     
     @IBAction func onClickDeleteButton1(_ sender: UIButton) {
         let point = sender.convert(CGPoint.zero, to: tableView)
         guard let indexpath = tableView.indexPathForRow(at: point) else {return}
-        let reference = databasePath?.ref.child(Tasks[indexpath.row].Title)
+        let reference = self.db.databasePath?.ref.child(Tasks[indexpath.row].Title)
         reference?.removeValue { error, _ in
                      print(error?.localizedDescription ?? "error")
                  }
@@ -33,19 +24,19 @@ class TasksViewController: UITableViewController {
         tableView.beginUpdates()
         tableView.deleteRows(at: [IndexPath(row: indexpath.row, section: 0)], with: .left)
         tableView.endUpdates()
-       
+        
     }
 
     @IBAction func radioSelected(_ sender: UIButton) {
         sender.isSelected = true
         let point = sender.convert(CGPoint.zero, to: tableView)
         guard let indexpath = tableView.indexPathForRow(at: point) else {return}
-        let reference = databasePath?.ref.child(Tasks[indexpath.row].Title)
+        let reference = self.db.databasePath?.ref.child(Tasks[indexpath.row].Title)
         if(Tasks[indexpath.row].Done == false)
         {
         Tasks[indexpath.row].Done = true
             do {
-              let data = try encoder.encode(Tasks[indexpath.row])
+                let data = try self.db.encoder.encode(Tasks[indexpath.row])
               let json = try JSONSerialization.jsonObject(with: data)
                 reference?
                 .setValue(json)
@@ -72,17 +63,25 @@ class TasksViewController: UITableViewController {
     private let decoder = JSONDecoder()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("load")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.Tasks.removeAll()
-        let nib = UINib(nibName: "DemoTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "DemoTableViewCell")
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.allowsSelection = false
-        loadFirebase()
+        print("appear")
+        let compl: (_ flag: Bool, _ tasks: [Task]) -> Void = { ready, tasks in
+            if ready{
+                self.Tasks.removeAll()
+                self.Tasks = tasks
+                let nib = UINib(nibName: "DemoTableViewCell", bundle: nil)
+                self.tableView.register(nib, forCellReuseIdentifier: "DemoTableViewCell")
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+                self.tableView.allowsSelection = false
+                self.tableView.reloadData()
+            }
+        }
+        self.db.loadAllTasks(using: compl)
     }
     
     // MARK: - Table view data source
@@ -108,41 +107,5 @@ class TasksViewController: UITableViewController {
         cell.myLablel?.text =  Tasks[indexPath.row].Title
         }
         return cell
-    }
-    
-    func loadFirebase()
-    {
-        let databasePath: DatabaseReference? = {
-      guard let uid = Auth.auth().currentUser?.uid else {
-        return nil
-      }
-      let ref = Database.database()
-        .reference()
-        .child("users/\(uid)/tasks")
-      return ref
-    }()
-        guard let databasePath = databasePath else {
-          return
-        }
-        databasePath
-          .observe(.childAdded) { [weak self] snapshot in
-            guard
-              let self = self,
-              let json = snapshot.value as? [String: Any]
-            else {
-              return
-            }
-            do {
-              let taskData = try JSONSerialization.data(withJSONObject: json)
-              let task = try self.decoder.decode(Task.self, from: taskData)
-                if(task.Done == false){
-                    self.Tasks.append(task)
-                }
-            } catch {
-              print("an error occurred", error)
-            }
-              self.tableView.reloadData()
-          }
-        self.tableView.reloadData()
     }
 }

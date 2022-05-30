@@ -873,6 +873,7 @@
                         <outlet property="btnAdd" destination="EyB-e7-FVA" id="dso-0A-ggq"/>
                         <outlet property="sldrPriority" destination="T7s-Qk-CpI" id="eQY-9O-oKz"/>
                         <outlet property="tfDescription" destination="J26-6y-p7G" id="asR-Lq-U7J"/>
+                        <outlet property="tfPriority" destination="T7s-Qk-CpI" id="vlt-PE-QNo"/>
                         <outlet property="tfTitle" destination="cmr-JK-zOJ" id="cGE-Wg-mT9"/>
                     </connections>
                 </viewController>

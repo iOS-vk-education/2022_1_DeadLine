@@ -68,7 +68,6 @@ class TasksViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("appear")
         let compl: (_ flag: Bool, _ tasks: [Task]) -> Void = { ready, tasks in
             if ready{
                 self.Tasks.removeAll()
@@ -79,9 +78,19 @@ class TasksViewController: UITableViewController {
                 self.tableView.dataSource = self
                 self.tableView.allowsSelection = false
                 self.tableView.reloadData()
+                print("compl1")
             }
         }
-        self.db.loadAllTasks(using: compl)
+        print("appear")
+        let compl2: (Bool) -> Void = { ready in
+            if ready {
+                self.db.loadAllTasks(using: compl)
+                print("compl2")
+            }
+        }
+       
+        self.db.signIn(using: compl2)
+       
     }
     
     // MARK: - Table view data source

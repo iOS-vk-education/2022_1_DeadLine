@@ -34,7 +34,20 @@ class FirebaseDb{
           print("an error occurred", error)
         }
     }
+    func signIn(using compl2: @escaping(Bool) -> Void) -> Int
     
+    {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print ("Mist")
+            return 0
+        }
+             self.databasePath = Database.database()
+                 .reference()
+                 .child("users/\(uid)/tasks")
+        print("sign")
+        compl2(true)
+        return 1
+    }
     func getTask(taskTitle: String, using compl: @escaping (_ flag: Bool,_ task: Task) -> Void)  -> Task{
         var task = Task(Title:  "-",Description: "-",Priority: 0.5, Done: false)
         self.databasePath?.child(taskTitle).observeSingleEvent(of: .value, with: { snapshot in

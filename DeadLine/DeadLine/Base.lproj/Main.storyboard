@@ -340,12 +340,22 @@
                                                         <action selector="celSelected:" destination="T1x-Hh-1s9" eventType="touchUpInside" id="R7y-cb-vYU"/>
                                                     </connections>
                                                 </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="o8I-Q5-JNq">
+                                                    <rect key="frame" x="6" y="6.5" width="12" height="11"/>
+                                                    <color key="tintColor" systemColor="systemGreenColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="12" id="0Xk-Q9-Ebm"/>
+                                                        <constraint firstAttribute="width" constant="12" id="qIB-Yp-CdD"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                             <constraints>
                                                 <constraint firstItem="SRE-Nf-JvU" firstAttribute="top" secondItem="jeq-T9-EyQ" secondAttribute="top" constant="26" id="2Fx-Mc-cKK"/>
                                                 <constraint firstAttribute="trailing" secondItem="SRE-Nf-JvU" secondAttribute="trailing" constant="8" id="KsT-2t-65Y"/>
+                                                <constraint firstItem="o8I-Q5-JNq" firstAttribute="top" secondItem="jeq-T9-EyQ" secondAttribute="top" constant="6" id="dHw-Kl-IxE"/>
+                                                <constraint firstItem="o8I-Q5-JNq" firstAttribute="leading" secondItem="jeq-T9-EyQ" secondAttribute="leading" constant="6" id="jAb-dk-PbT"/>
                                                 <constraint firstAttribute="bottom" secondItem="SRE-Nf-JvU" secondAttribute="bottom" constant="27" id="nF1-M0-m2h"/>
                                             </constraints>
                                         </view>
@@ -360,8 +370,10 @@
                                 <connections>
                                     <outlet property="backgroundView" destination="O5y-cA-AMv" id="c4F-Ur-F5r"/>
                                     <outlet property="cell" destination="jeq-T9-EyQ" id="HYZ-O3-TkD"/>
+                                    <outlet property="deleteBtn" destination="SRE-Nf-JvU" id="a1q-2p-0wL"/>
                                     <outlet property="myLablel" destination="fcl-Da-cC8" id="CGN-Ib-9u6"/>
                                     <outlet property="myOption" destination="g7V-5Z-nzv" id="g76-2u-Pet"/>
+                                    <outlet property="roundIndicator" destination="o8I-Q5-JNq" id="l7F-1i-XG9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -778,7 +790,7 @@
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <color key="highlightedColor" systemColor="systemGray5Color"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Введите описание" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J26-6y-p7G">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите описание" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J26-6y-p7G">
                                 <rect key="frame" x="12" y="204" width="390" height="64"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
@@ -799,7 +811,7 @@
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <color key="highlightedColor" systemColor="systemGray5Color"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Введите название" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cmr-JK-zOJ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите название" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cmr-JK-zOJ">
                                 <rect key="frame" x="12" y="121" width="390" height="34"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -884,6 +896,7 @@
     </scenes>
     <resources>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="delete.left" catalog="system" width="128" height="104"/>
         <image name="list.triangle" catalog="system" width="128" height="91"/>
         <image name="person" catalog="system" width="128" height="117"/>
@@ -907,6 +920,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

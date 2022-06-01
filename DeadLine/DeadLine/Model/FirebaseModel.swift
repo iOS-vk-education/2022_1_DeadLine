@@ -81,7 +81,7 @@ class FirebaseDb{
         }
     }
     
-    func loadAllTasks(using compl: @escaping (_ flag: Bool,_ tasks: [Task]) -> Void)
+    func loadAllTasks(done : Bool, using compl: @escaping (_ flag: Bool,_ tasks: [Task]) -> Void)
     {
         var Tasks: [Task] = []
         self.databasePath?
@@ -95,7 +95,7 @@ class FirebaseDb{
             do {
               let taskData = try JSONSerialization.data(withJSONObject: json)
               let task = try self.decoder.decode(Task.self, from: taskData)
-                if(task.Done == false){
+                if(task.Done == done){
                     Tasks.append(task)
                 }
             } catch {

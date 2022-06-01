@@ -84,12 +84,16 @@ class TasksViewController: UITableViewController {
         print("appear")
         let compl2: (Bool) -> Void = { ready in
             if ready {
-                self.db.loadAllTasks(using: compl)
+                self.db.loadAllTasks(done: false, using: compl)
                 print("compl2")
             }
         }
        
-        self.db.signIn(using: compl2)
+        if (self.db.signIn(using: compl2) == 0)
+        {
+            self.Tasks.removeAll()
+            self.tableView.reloadData()
+        }
        
     }
     
@@ -109,11 +113,29 @@ class TasksViewController: UITableViewController {
         return 120
     }
 
+    @IBOutlet weak var del: UIButton!
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! DemoTableViewCell
         if(Tasks.count>0)
         {
         cell.myLablel?.text =  Tasks[indexPath.row].Title
+            print("Красим")
+            if(Tasks[indexPath.row].Priority > 0.8)
+            {
+                cell.roundIndicator.tintColor = UIColor.red
+                
+            }
+            else if (Tasks[indexPath.row].Priority >= 0.5)
+            {
+                cell.roundIndicator.tintColor = UIColor.orange
+                
+            }
+            else{
+                cell.roundIndicator.tintColor = UIColor.green        }
+                
+            
         }
         return cell
     }

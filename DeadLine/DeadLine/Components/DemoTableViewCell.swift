@@ -12,6 +12,8 @@ class DemoTableViewCell: UITableViewCell {
     @IBOutlet var myLablel: UILabel!
     @IBOutlet var myOption: UIButton!
     @IBOutlet weak var cell: UIView!
+    @IBOutlet weak var roundIndicator: UIImageView!
+    @IBOutlet weak var deleteBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
